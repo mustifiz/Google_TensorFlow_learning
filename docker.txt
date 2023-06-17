@@ -1,0 +1,21 @@
+Entpacken Sie die heruntergeladene mm_update_spam_savedmodel.zip-Datei in einen Ordner. Beenden Sie dann die Docker-Containerinstanz aus dem vorherigen Codelab und starten Sie sie noch einmal. Ersetzen Sie dabei den Platzhalter PATH/TO/UPDATE/SAVEDMODEL durch den absoluten Pfad des Ordners, in dem die heruntergeladenen Dateien gehostet werden:
+
+
+docker run -it --rm -p 8500:8500 -p 8501:8501 -v "PATH/TO/UPDATE/SAVEDMODEL:/models/spam-detection" -e MODEL_NAME=spam-detection tensorflow/serving
+
+Öffne die Datei lib/main.dart mit deinem bevorzugten Code-Editor und suche nach dem Teil, der die Variablen inputTensorName und outTensorName definiert:
+
+
+const inputTensorName = 'input_3';
+const outputTensorName = 'dense_5';
+
+Weisen Sie die Variable inputTensorName einem input_1'-Wert und die Variable outputTensorName einem 'dense_1'-Wert zu:
+
+const inputTensorName = 'input_1';
+const outputTensorName = 'dense_1';
+
+Kopiere die heruntergeladene Datei vocab.txt in den Ordner lib/assets/.
+Entfernen Sie die Textklassifizierungs-Flatter-App manuell aus dem Android-Emulator.
+Führe den Befehl 'flutter run' in deinem Terminal aus, um die App zu starten.
+Geben Sie in der App buy my book to learn online trading ein und klicken Sie auf GRP > Classify.
+Durch die Änderung des Modells wurde das Modell mein Buch zum Online-Handel kaufen als Spam erkannt.
